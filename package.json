@@ -16,5 +16,6 @@
   "dependencies": {
     "jquery": "x.x.x"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "main": "dropdown.js"
 }
