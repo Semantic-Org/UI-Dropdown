@@ -17,5 +17,5 @@
     "jquery": "x.x.x"
   },
   "devDependencies": {},
-  "main": "dropdown.js"
+  "main": "index.js"
 }
