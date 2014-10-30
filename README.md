@@ -4,7 +4,7 @@ This repository contains pre-compiled dropdown files using the default themes. T
 
 For the latest changes please see the Release Notes in this repository.
 
-If you're looking for the full version including all components and build tools [check out the main project repository](https://github.com/Semantic-Org/Semantic-UI/tree/1.0)
+If you're looking for the full version of Semantic including all components and build tools [check out the main project repository](https://github.com/Semantic-Org/Semantic-UI/tree/1.0)
 
 #### To install with Bower
 ```
