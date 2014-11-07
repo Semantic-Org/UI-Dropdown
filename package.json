@@ -1,10 +1,6 @@
 {
   "name": "semantic-ui-dropdown",
-<<<<<<< HEAD
   "version": "1.0.0-beta",
-=======
-  "version": "1.0.0",
->>>>>>> 10ed0ff2b3faec9d320bfbd95374be0dfcf8928b
   "title": "Semantic UI - Dropdown",
   "description": "Single component release of dropdown",
   "homepage": "http://www.semantic-ui.com",
