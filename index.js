@@ -591,12 +591,7 @@ module.exports = function(parameters) {
                 openingSubMenu = ($choice.find(selector.menu).size() > 0)
               ;
               if( !openingSubMenu ) {
-                if(event.type == 'touchstart') {
-                  $choice.one('click', callback);
-                }
-                else {
-                  callback();
-                }
+                callback();
               }
             }
 
@@ -1019,11 +1014,11 @@ module.exports = function(parameters) {
               else if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu
                   .transition({
-                    animation : settings.transition + ' in',
-                    duration  : settings.duration,
-                    queue     : true,
-                    start     : start,
-                    complete  : function() {
+                    animation  : settings.transition + ' in',
+                    duration   : settings.duration,
+                    queue      : true,
+                    onStart    : start,
+                    onComplete : function() {
                       $.proxy(callback, element)();
                     }
                   })
@@ -1087,11 +1082,11 @@ module.exports = function(parameters) {
               else if($.fn.transition !== undefined && $module.transition('is supported')) {
                 $currentMenu
                   .transition({
-                    animation : settings.transition + ' out',
-                    duration  : settings.duration,
-                    queue     : true,
-                    start     : start,
-                    complete  : function() {
+                    animation  : settings.transition + ' out',
+                    duration   : settings.duration,
+                    queue      : true,
+                    onStart    : start,
+                    onComplete : function() {
                       $.proxy(callback, element)();
                     }
                   })

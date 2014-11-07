@@ -1,6 +1,6 @@
 {
-  "name": "UI-Dropdown",
-  "version": "1.0.0",
+  "name": "semantic-ui-dropdown",
+  "version": "1.0.0-beta",
   "title": "Semantic UI - Dropdown",
   "description": "Single component release of dropdown",
   "homepage": "http://www.semantic-ui.com",
@@ -13,9 +13,9 @@
   "bugs": {
     "url": "https://github.com/Semantic-Org/Semantic-UI/issues"
   },
+  "devDependencies": {},
   "dependencies": {
     "jquery": "x.x.x"
   },
-  "devDependencies": {},
   "main": "index.js"
 }
