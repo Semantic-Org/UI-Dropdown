@@ -104,7 +104,7 @@ module.exports = function(parameters) {
         },
 
         observeChanges: function() {
-          if(MutationObserver !== undefined) {
+          if('MutationObserver' in window) {
             observer = new MutationObserver(function(mutations) {
               module.debug('DOM tree modified, updating selector cache');
               module.refresh();
@@ -265,23 +265,27 @@ module.exports = function(parameters) {
             }
           },
           touchEvents: function() {
-            module.debug('Touch device detected binding touch events');
-            if( !module.is.searchSelection() ) {
+            module.debug('Touch device detected binding additional touch events');
+            if( module.is.searchSelection() ) {
+              // do nothing special yet
+            }
+            else {
               $module
                 .on('touchstart' + eventNamespace, module.event.test.toggle)
               ;
             }
-            $module
+            $menu
               .on('touchstart' + eventNamespace, selector.item, module.event.item.mouseenter)
-              .on('touchstart' + eventNamespace, selector.item, module.event.item.click)
             ;
           },
           mouseEvents: function() {
             module.verbose('Mouse detected binding mouse events');
             if( module.is.searchSelection() ) {
               $module
-                .on('focus' + eventNamespace, selector.search, module.event.searchFocus)
-                .on('blur' + eventNamespace, selector.search, module.event.searchBlur)
+                .on('mousedown' + eventNamespace, selector.menu, module.event.menu.activate)
+                .on('mouseup'   + eventNamespace, selector.menu, module.event.menu.deactivate)
+                .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
+                .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
               ;
             }
             else {
@@ -302,15 +306,13 @@ module.exports = function(parameters) {
                 ;
               }
               $module
-                .on('mousedown', module.event.mousedown)
-                .on('mouseup', module.event.mouseup)
-                .on('focus' + eventNamespace, module.event.focus)
-                .on('blur' + eventNamespace, module.event.blur)
+                .on('mousedown' + eventNamespace, module.event.mousedown)
+                .on('mouseup'   + eventNamespace, module.event.mouseup)
+                .on('focus'     + eventNamespace, module.event.focus)
+                .on('blur'      + eventNamespace, module.event.blur)
               ;
             }
-            $module
-              .on('mousedown'  + eventNamespace, selector.item, module.event.item.mousedown)
-              .on('mouseup'    + eventNamespace, selector.item, module.event.item.mouseup)
+            $menu
               .on('mouseenter' + eventNamespace, selector.item, module.event.item.mouseenter)
               .on('mouseleave' + eventNamespace, selector.item, module.event.item.mouseleave)
               .on('click'      + eventNamespace, selector.item, module.event.item.click)
@@ -390,6 +392,12 @@ module.exports = function(parameters) {
           ;
         },
 
+        focusSearch: function() {
+          $search
+            .focus()
+          ;
+        },
+
         event: {
           // prevents focus callback from occuring on mousedown
           mousedown: function() {
@@ -451,17 +459,12 @@ module.exports = function(parameters) {
             // close shortcuts
             if(pressedKey == keys.escape) {
               module.verbose('Escape key pressed, closing dropdown');
-              $search.blur();
               module.hide();
             }
             // result shortcuts
             if(module.is.visible()) {
               if(pressedKey == keys.enter && hasSelectedItem) {
                 module.verbose('Enter key pressed, choosing selected item');
-                if(module.is.searchable()) {
-                  module.verbose('Removing focus from search input');
-                  $search.blur();
-                }
                 $.proxy(module.event.item.click, $selectedItem)(event);
                 event.preventDefault();
                 return false;
@@ -533,14 +536,15 @@ module.exports = function(parameters) {
             }
           },
 
-          item: {
-
-            mousedown: function() {
+          menu: {
+            activate: function() {
               itemActivated = true;
             },
-            mouseup: function() {
+            deactivate: function() {
               itemActivated = false;
-            },
+            }
+          },
+          item: {
             mouseenter: function(event) {
               var
                 $currentMenu = $(this).find(selector.menu),
@@ -765,7 +769,7 @@ module.exports = function(parameters) {
                         : optionText
                   ;
                   if(strict) {
-                    module.debug('Ambiguous dropdown value using strict type check', value);
+                    module.verbose('Ambiguous dropdown value using strict type check', $choice, value);
                     if( optionValue === value ) {
                       $selectedItem = $(this);
                     }
@@ -1015,6 +1019,8 @@ module.exports = function(parameters) {
                 $currentMenu
                   .transition({
                     animation  : settings.transition + ' in',
+                    debug      : settings.debug,
+                    verbose    : settings.verbose,
                     duration   : settings.duration,
                     queue      : true,
                     onStart    : start,
@@ -1068,6 +1074,7 @@ module.exports = function(parameters) {
                   if( module.can.click() ) {
                     module.unbind.intent();
                   }
+                  module.focusSearch();
                   module.hideSubMenus();
                   module.remove.active();
                 }
@@ -1084,6 +1091,8 @@ module.exports = function(parameters) {
                   .transition({
                     animation  : settings.transition + ' out',
                     duration   : settings.duration,
+                    debug      : settings.debug,
+                    verbose    : settings.verbose,
                     queue      : true,
                     onStart    : start,
                     onComplete : function() {
