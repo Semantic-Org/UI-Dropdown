@@ -1,4 +1,4 @@
-### Version 1.0.0 - XX XX, 2014
+### Version 1.0.0 - November 24, 2014
 
 - **Dropdown** - Sub menus inside dropdowns now need a wrapping div **text** around sub-menu descriptions
 - **Dropdown** - New dropdown type, searchable selection for large lists of choices

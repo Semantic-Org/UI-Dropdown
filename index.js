@@ -97,6 +97,7 @@ module.exports = function(parameters) {
 
         destroy: function() {
           module.verbose('Destroying previous dropdown for', $module);
+          module.remove.tabbable();
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -130,27 +131,7 @@ module.exports = function(parameters) {
               ;
             }
             if(settings.allowTab) {
-              if( module.is.searchable() ) {
-                module.debug('Searchable dropdown initialized');
-                $search
-                  .val('')
-                  .attr('tabindex', 0)
-                ;
-                $menu
-                  .attr('tabindex', '-1')
-                ;
-              }
-              else {
-                module.debug('Simple selection dropdown initialized');
-                if(!$module.attr('tabindex') ) {
-                  $module
-                    .attr('tabindex', 0)
-                  ;
-                  $menu
-                    .attr('tabindex', '-1')
-                  ;
-                }
-              }
+              module.set.tabbable();
             }
           },
           select: function() {
@@ -224,7 +205,6 @@ module.exports = function(parameters) {
           if( module.is.active() ) {
             module.debug('Hiding dropdown');
             module.animate.hide(function() {
-              module.remove.filteredItem();
               module.remove.visible();
             });
             $.proxy(settings.onHide, element)();
@@ -285,6 +265,7 @@ module.exports = function(parameters) {
                 .on('mousedown' + eventNamespace, selector.menu, module.event.menu.activate)
                 .on('mouseup'   + eventNamespace, selector.menu, module.event.menu.deactivate)
                 .on('focus'     + eventNamespace, selector.search, module.event.searchFocus)
+                .on('click'     + eventNamespace, selector.search, module.show)
                 .on('blur'      + eventNamespace, selector.search, module.event.searchBlur)
               ;
             }
@@ -352,6 +333,7 @@ module.exports = function(parameters) {
             $results       = $(),
             exactRegExp    = new RegExp('(?:\s|^)' + searchTerm, 'i'),
             fullTextRegExp = new RegExp(searchTerm, 'i'),
+            allItemsFiltered,
             $filteredItems
           ;
           $item
@@ -379,7 +361,9 @@ module.exports = function(parameters) {
               }
             })
           ;
-          $filteredItems = $item.not($results);
+          $filteredItems   = $item.not($results);
+          allItemsFiltered = ($filteredItems.size() == $item.size());
+
           module.remove.filteredItem();
           module.remove.selectedItem();
           $filteredItems
@@ -390,12 +374,17 @@ module.exports = function(parameters) {
               .eq(0)
               .addClass(className.selected)
           ;
+          if(allItemsFiltered) {
+            module.hide();
+          }
         },
 
         focusSearch: function() {
-          $search
-            .focus()
-          ;
+          if( module.is.search() ) {
+            $search
+              .focus()
+            ;
+          }
         },
 
         event: {
@@ -407,7 +396,7 @@ module.exports = function(parameters) {
             activated = false;
           },
           focus: function() {
-            if(!activated) {
+            if(!activated && module.is.hidden()) {
               module.show();
             }
           },
@@ -430,7 +419,10 @@ module.exports = function(parameters) {
               query = $search.val()
             ;
             if(module.is.searchSelection()) {
-              $text.addClass(className.filtered);
+              if( module.can.show() ) {
+                module.show();
+              }
+              module.set.filtered();
             }
             module.filter(query);
           },
@@ -588,7 +580,8 @@ module.exports = function(parameters) {
                       ? text.toLowerCase()
                       : text,
                 callback = function() {
-                  $search.val('');
+                  module.remove.searchTerm();
+                  module.remove.filteredItem();
                   module.determine.selectAction(text, value);
                   $.proxy(settings.onChange, element)(value, text, $choice);
                 },
@@ -835,6 +828,32 @@ module.exports = function(parameters) {
         },
 
         set: {
+          filtered: function() {
+            $text.addClass(className.filtered);
+          },
+          tabbable: function() {
+            if( module.is.searchable() ) {
+              module.debug('Searchable dropdown initialized');
+              $search
+                .val('')
+                .attr('tabindex', 0)
+              ;
+              $menu
+                .attr('tabindex', '-1')
+              ;
+            }
+            else {
+              module.debug('Simple selection dropdown initialized');
+              if(!$module.attr('tabindex') ) {
+                $module
+                  .attr('tabindex', 0)
+                ;
+                $menu
+                  .attr('tabindex', '-1')
+                ;
+              }
+            }
+          },
           scrollPosition: function($item) {
             var
               $item         = $item || module.get.item(),
@@ -947,8 +966,31 @@ module.exports = function(parameters) {
           filteredItem: function() {
             $item.removeClass(className.filtered);
           },
+          searchTerm: function() {
+            $search.val('');
+          },
           selectedItem: function() {
             $item.removeClass(className.selected);
+          },
+          tabbable: function() {
+            if( module.is.searchable() ) {
+              module.debug('Searchable dropdown initialized');
+              $search
+                .attr('tabindex', '-1')
+              ;
+              $menu
+                .attr('tabindex', '-1')
+              ;
+            }
+            else {
+              module.debug('Simple selection dropdown initialized');
+              $module
+                .attr('tabindex', '-1')
+              ;
+              $menu
+                .attr('tabindex', '-1')
+              ;
+            }
           }
         },
 
@@ -1378,7 +1420,7 @@ module.exports.settings = {
     dropdown : '.ui.dropdown',
     text     : '> .text:not(.icon)',
     input    : '> input[type="hidden"], > select',
-    search   : '> .search, .menu > .search > input, .menu > input.search',
+    search   : '> input.search, .menu > .search > input, .menu > input.search',
     menu     : '.menu',
     item     : '.item'
   },
