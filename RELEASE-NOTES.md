@@ -7,6 +7,18 @@
 - **Dropdown** - Many new content types now work inside dropdowns, headers, dividers, images, inputs, labels and more
 - **Form** - Inputs now use 1em font size and correctly match selection dropdown height
 
+### Version 0.18.0 - June 6, 2014
+
+- **Dropdown** - Fixes dropdown 'is animating' with dropdowns when CSS animations were not included **Thanks nathankot**
+
+### Version 0.17.0 - May 9, 2014
+
+- **Dropdown** - Dropdowns can now receive focus and be navigated with a keyboard **Thanks Musatov**
+
+### Version 0.15.1 - Mar 14, 2014
+
+- **Dropdown** - Typo in dropdown css was causing selection dropdowns not to appear
+
 ### Version 0.15.0 - Mar 14, 2014
 
 - **Form** - Forms, Dropdowns, and Inputs now have matching padding size, and use 1em font size to appear same size as surrounding text
