@@ -1,3 +1,26 @@
+### Version 1.3.0 - December 17, 2014
+
+- **Dropdown** - Dropdown can now specify which direction a menu should appear left/right, dropdown icons can also appear on the left
+- **Dropdown** - Full text search now defaults to ``false``, meaning search terms will return only results beginning with letters
+- **Dropdown** - Search Dropdown is now much more responsive, js improvements and input throttling added.Throttling defaults to `50ms` and can be modified with settings ``delay.search``
+- **Dropdown** - Search Dropdown now correctly replaces placeholder text when backspacing to empty value
+- **Dropdown** - Search Dropdown now has a callback when all results filtered ``onNoResults``
+- **Dropdown** - Search dropdown will now strip html before searching values when searching html
+- **Dropdown** - Search now has keyboard shortcut to open dropdown on arrow down
+- **Dropdown** - Dropdown now always scrolls to active element on menu open, calculates position with new ``loading`` class
+- **Dropdown** - Fix bug in position of sub menus with ``floating dropdown``
+- **All UI** - Adds error message when triggering an invalid module behavior i.e. typos ``$('.dropdown').dropdown('hid');``
+
+### Version 1.2.0 - December 08, 2014
+
+- **Dropdown** - Fixes bug with dropdown converted from ``select`` that use ``<option`` values with capital letters not being selectable
+- Fixed documentation on dropdown actions, form field widths, form validation types, and many odds & ends
+
+### Version 1.1.0 - December 02, 2014
+
+- **Dropdown** - Dropdown ``onChange`` callback now fires when calling ``setSelected`` programatically.
+- **Dropdown** - Fix ``action input`` used inside ``ui dropdown`` to appear correctly **Thanks ordepdev**
+
 ### Version 1.0.0 - November 24, 2014
 
 - **Dropdown** - Sub menus inside dropdowns now need a wrapping div **text** around sub-menu descriptions
