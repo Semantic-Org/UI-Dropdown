@@ -1,3 +1,13 @@
+### Version 1.4.1 - December 23, 2014
+
+- **Dropdown** - ``<select>`` elements will now preserve original ``<option>`` order by default. Added ``sortSelect`` setting (disabled by default) to automatically sort ``<option>`` on initialization
+- **Button** - Fixes issue with ``will-change`` property added to ``ui button`` causing layout z-indexing issues (dropdown button)
+
+### Version 1.4.0 - December 22, 2014
+
+- **Menu** - Fix border radius of dropdown menu inside `ui vertical menu`
+- **Menu** - Fix formatting of ``ui selection dropdown`` inside ``menu``
+
 ### Version 1.3.0 - December 17, 2014
 
 - **Dropdown** - Dropdown can now specify which direction a menu should appear left/right, dropdown icons can also appear on the left
