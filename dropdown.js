@@ -378,6 +378,7 @@ $.fn.dropdown = function(parameters) {
                 text    = module.get.choiceText($choice, false),
                 value   = module.get.choiceValue($choice, text)
               ;
+              value = String(value);
               if( exactRegExp.test( text ) || exactRegExp.test( value ) ) {
                 $results = $results.add($choice);
               }
