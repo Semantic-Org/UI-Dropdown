@@ -19,5 +19,5 @@
     "jquery": "x.x.x"
   },
   "main": "dropdown.js",
-  "version": "1.4.1"
+  "version": "1.7.2"
 }
