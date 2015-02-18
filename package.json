@@ -1,0 +1,25 @@
+{
+  "name": "semantic-ui-dropdown",
+<<<<<<< HEAD
+  "version": "1.0.0-beta",
+=======
+  "version": "1.7.2",
+>>>>>>> 57fb508c1797bd2b706576643fb232b7d92742c2
+  "title": "Semantic UI - Dropdown",
+  "description": "Single component release of dropdown",
+  "homepage": "http://www.semantic-ui.com",
+  "author": "Jack Lukic <jack@semantic-ui.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Semantic-Org/UI-Dropdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Semantic-Org/Semantic-UI/issues"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "jquery": "x.x.x"
+  },
+  "main": "index.js"
+}
