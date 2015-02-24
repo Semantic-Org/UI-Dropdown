@@ -1,3 +1,7 @@
+### Version 1.10.0 - February 23, 2015
+
+- **Menu** - Fixes pointing menu displaying under dropdown menu
+
 ### UI Changes
 
 - **Input** - Input with dropdowns is now much easier, see docs. `action input` and `labeled input` now use `display: flex`. `ui action input` now supports `<button>` tag usage (!) which support `flex` but not `table-cell`
