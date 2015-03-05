@@ -1,3 +1,8 @@
+### Version 1.11.1 - March 5, 2015
+
+- **Dropdown** - Calling behaviors on a dropdown `select` will now automatically route them to the appropriate parent `ui dropdown`
+- **Dropdown** - Added select styles for elements before they are initialized instead of FOIC (Flash of invisible content)
+
 ### Version 1.11.0 - March 3, 2015
 
 - **Dropdown** - Fixes issue where dropdown would not open after restoring previus value on failed `search dropdown` search
