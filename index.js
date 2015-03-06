@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.1 - Dropdown
+ * # Semantic UI 1.11.2 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -33,7 +33,7 @@ module.exports = function(parameters) {
   ;
 
   $allModules
-    .each(function() {
+    .each(function(index) {
       var
         settings          = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, _module.exports.settings, parameters)
@@ -212,17 +212,16 @@ module.exports = function(parameters) {
                 .prependTo($module)
               ;
             }
-            module.refresh();
+            module.setup.reference();
           },
           reference: function() {
             var
-              index = $allModules.index($module),
               $firstModules,
               $lastModules
             ;
             module.debug('Dropdown behavior was called on select, replacing with closest dropdown');
             // replace module reference
-            $module = $module.parent(selector.dropdown);
+            $module = $module.closest(selector.dropdown);
             module.refresh();
             // adjust all modules
             $firstModules = $allModules.slice(0, index);

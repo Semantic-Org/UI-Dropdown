@@ -1,3 +1,7 @@
+### Version 1.11.2 - March 6, 2015
+
+- **Dropdown** - Fix issue in `setup reference` (added in `1.11.1`) where chaining would not return `ui dropdown` immediately after initialization
+
 ### Version 1.11.1 - March 5, 2015
 
 - **Dropdown** - Calling behaviors on a dropdown `select` will now automatically route them to the appropriate parent `ui dropdown`
