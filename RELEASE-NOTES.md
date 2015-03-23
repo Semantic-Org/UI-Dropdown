@@ -1,3 +1,11 @@
+### Version 1.11.5 - March 23, 2015
+
+- **Dropdown** - `onChange` no longer fires when reselecting same value
+- **Dropdown** - Fix bug where element will not blur on tab key when search selection and no selection made
+- **Dropdown** - Dropdown init on `select` now returns `ui dropdown` created for chaining
+- **Dropdown** - Dropdown `focus` color has been adjusted to match forms more closely
+- **Dropdown** - Fixes IE10 scrollbar width in menu (calc was being precompiled in LESS) **Thanks @gabormeszoly**
+
 ### Version 1.11.2 - March 6, 2015
 
 - **Dropdown** - Fix issue in `setup reference` (added in `1.11.1`) where chaining would not return `ui dropdown` immediately after initialization

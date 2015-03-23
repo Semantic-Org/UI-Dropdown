@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.11.4 - Dropdown
+ * # Semantic UI 1.11.5 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -33,7 +33,7 @@ module.exports = function(parameters) {
   ;
 
   $allModules
-    .each(function(index) {
+    .each(function() {
       var
         settings          = ( $.isPlainObject(parameters) )
           ? $.extend(true, {}, _module.exports.settings, parameters)
@@ -212,16 +212,17 @@ module.exports = function(parameters) {
                 .prependTo($module)
               ;
             }
-            module.setup.reference();
+            module.refresh();
           },
           reference: function() {
             var
+              index = $allModules.index($module),
               $firstModules,
               $lastModules
             ;
             module.debug('Dropdown behavior was called on select, replacing with closest dropdown');
             // replace module reference
-            $module = $module.closest(selector.dropdown);
+            $module = $module.parent(selector.dropdown);
             module.refresh();
             // adjust all modules
             $firstModules = $allModules.slice(0, index);
@@ -472,6 +473,9 @@ module.exports = function(parameters) {
           if(hasSelected) {
             module.event.item.click.call($selectedItem);
             module.remove.filteredItem();
+          }
+          else {
+            module.hide();
           }
         },
 
@@ -966,19 +970,23 @@ module.exports = function(parameters) {
                     module.verbose('Ambiguous dropdown value using strict type check', $choice, value);
                     if( optionValue === value ) {
                       $selectedItem = $(this);
+                      return true;
                     }
                     else if( !$selectedItem && optionText === value ) {
                       $selectedItem = $(this);
+                      return true;
                     }
                   }
                   else {
                     if( optionValue == value ) {
                       module.verbose('Found select item by value', optionValue, value);
                       $selectedItem = $(this);
+                      return true;
                     }
                     else if( !$selectedItem && optionText == value ) {
                       module.verbose('Found select item by text', optionText, value);
                       $selectedItem = $(this);
+                      return true;
                     }
                   }
                 })
@@ -1181,7 +1189,7 @@ module.exports = function(parameters) {
               selectedText,
               selectedValue
             ;
-            if($selectedItem) {
+            if($selectedItem && !$selectedItem.hasClass(className.active) ) {
               module.debug('Setting selected menu item to', $selectedItem);
               module.remove.activeItem();
               module.remove.selectedItem();
@@ -1561,7 +1569,7 @@ module.exports = function(parameters) {
               });
             }
             clearTimeout(module.performance.timer);
-            module.performance.timer = setTimeout(module.performance.display, 100);
+            module.performance.timer = setTimeout(module.performance.display, 500);
           },
           display: function() {
             var
