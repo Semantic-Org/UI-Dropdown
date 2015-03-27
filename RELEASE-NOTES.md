@@ -1,3 +1,8 @@
+### Version 1.11.6 - March 27, 2015
+
+- **Menu/Dropdown** - Fix dropdown headers disappearing inside menus
+- **Dropdown** - Fix unescaped character in css property causing css validation errors
+
 ### Version 1.11.5 - March 23, 2015
 
 - **Dropdown** - `onChange` no longer fires when reselecting same value
