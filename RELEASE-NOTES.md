@@ -1,3 +1,7 @@
+### Version 1.12.1 - April 26, 2015
+
+- **Dropdown** - Fixes issue with chained dropdown methods used on a `<select>` not applying to the generated `ui dropdown` **Backport from 2.0**
+
 ### Version 1.11.6 - March 27, 2015
 
 - **Menu/Dropdown** - Fix dropdown headers disappearing inside menus
