@@ -1,14 +1,14 @@
 {
-  "name": "semantic-ui-dropdown",
-  "version": "1.12.3",
-  "title": "Semantic UI - Dropdown",
-  "description": "Single component release of dropdown",
+  "name": "semantic",
+  "version": "1.0.0",
+  "title": "Semantic UI",
+  "description": "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
   "homepage": "http://www.semantic-ui.com",
   "author": "Jack Lukic <jack@semantic-ui.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Semantic-Org/UI-Dropdown.git"
+    "url": "git://github.com/Semantic-Org/Semantic-UI.git"
   },
   "bugs": {
     "url": "https://github.com/Semantic-Org/Semantic-UI/issues"

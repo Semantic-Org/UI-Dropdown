@@ -1,3 +1,59 @@
+### Version 2.0.1 - June 30, 2015
+
+- **Dropdown** - `restore defaults` in dropdown when used with multiple will now correctly clear other values selected that were not there on page load.
+- **Dropdown** - Removes accidental console.log statement in dropdown
+
+### Version 2.0.0 - June 30, 2015
+
+- **Dropdown** - Dropdowns will now change opening directions automatically based on available screen space. If you need  to force a dropdown direction use `dropdown({ direction: 'upward'})`
+- **Dropdown** - Dropdown item `description` now are floated in default theme and should be included before other `item` content
+- **Multiselect** - New `multiple` dropdown types have been added. Many new dropdown improvements have been added including tagging/tokenizing features and loading data through API requests.
+- **Dropdown** - Added remote API integration with dropdown, to allow `search selection` to query against a remote dataset.
+- **Dropdown** - Dropdowns now automatically observe changes in `menu` and will update selector cache with new additions
+- **Dropdowns** - Added ability to add custom choices to all search selection dropdowns (multi/single) using `allowAdditions: true` setting. Search now displays error messages on no results in all cases.
+- **Dropdown** - Keyboard shortcuts have been added for selecting dropdown choices, for example "N" will scroll to "New York" in a state selection list, similar to native `<select>` behavior.
+- **Dropdown** - Added new dropdown variation `scrolling dropdown` and `scrolling menu`, this can be used to include a scrollable section inside a dropdown menu.
+- **Dropdown** - Dropdown will automatically animate upward if there is not enough space to appear below.
+- **Dropdown** - Using `page up` and `page down` keys will now scroll menus by a page at a time
+- **Transition** - Fallback javascript animations have been removed from UI components like dropdown and popup to increase performance. This removes need for expensive pseudo selectors like `:visible`, `:animated` and `:hidden` and reduces filesize.
+- **Dropdown** - Nested `scrolling` menus now support keyboard selection, e.g. pressing "A" for apple, and keyboard scrolling.
+- **Dropdown** - Dropdowns now have `match` setting to specify whether to match on `text`, `value` or `both`
+- **Dropdown** - Multi select dropdowns now have new settings for specifying maximum selection count
+- **Dropdown** - Dropdown has new `placeholder` setting for setting placeholder text in javascript
+- **Dropdown** - Added `showOnFocus` option that lets you specify whether dropdown menu should show on focus
+- **Dropdown** - `fullTextSearch: true` now uses fuzzy search (same as `ui search`)
+- **Dropdown** - Page down and page up now works with dropdown menus
+- **Dropdown** - Dropdown initialized with `disabled` prop on an `option` will now correctly appear disabled
+- **Dropdown** - Added `disabled item` state, disabled items will automatically be skipped with keyboard selection
+- **Form** - Fix `errored field` dropdown keyboard selection color
+- **Input** - Action input now supports multiple buttons, and dropdown
+- **Menu** - Fixed several inheritance issues for `dropdown item` inside `menu` appearing as `menu item`.
+- **Menu** - The hover/active state of `dropdown item` have been adjusted to match `item`. Dropdown styles can be themed specifically inside `menu`.
+- **Menu** - Vertical dropdown menus are no longer 100% `min-width`
+- **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
+- **Dropdown** - `focus` after changing tabs will no longer cause menu to re-open **Thanks @trevorharwell**
+- **Dropdown** - Fix issue with search dropdown refocusing on self the first time after "tabbing" away in Chrome
+- **Dropdown** - Fixes issue with headers disappearing inside of `ui dropdown` when nested in `ui menu`
+- **Dropdown** - Fixes `onChange` to fire when input value changes, not just when menu UI changes
+- **Dropdown** - Dropdowns with `transition: none` now work correctly.
+- **Dropdown** - Fixed issue where `sortSelect` was relying on object key enumeration order which is browser dependent and unreliable. It now uses a sort function which functions the same in all browsers
+- **Dropdown** - Fixed issue with `search selection` not changing text when reselecting same value from list
+- **Dropdown** - Fixed `min-width` issues causing background to not appear behind unwrapped text with `white-space: nowrap`
+- **Dropdown** - Dropdown `menu` now use same font size as dropdown
+- **Dropdown** - Fixed dropdown `metadata` attribute caching causing issues with React integration
+- **Dropdown** - Fixed border radius on `sub menu` when aligned `left`
+- **Dropdown** - Fixed `inline dropdown` icon not aligning with content
+- **Dropdown** - Fixed behaviors called on `<select>` after initialization not being correctly applied to `ui dropdown`
+- **Dropdown** - Fixed issue with matching boolean values, and using `set selected` with `true` or `false`
+- **Dropdown** - Fixed `search dropdown` submitting parent form when enter shortcut pressed
+- **Dropdown** - Fixed dropdown menu items should not center inside of a center aligned container.
+- **Dropdown** - Fixed some cases where onChange would not occur for values matching equality against '', for example `0`
+- **Form** - Fixed autocompleted `ui selection dropdown` having dropdown icon z-index issues
+- **Menu** - `dropdown menu` in a `secondary pointing menu` or `tabular menu` now receive distinct active styling from other `active item`
+- **Menu** - Fix issue with `pointing` arrow having too high a `z-index` and appearing above `ui dropdown menu`
+- **Dropdown** - Dropdown padding values now resolve to exact pixel values from em
+- **Dropdown** - `item` `description` is now floated by default
+
 ### Version 1.12.2 - May 4, 2015
 
 - **Dropdown** - Fixed `left` and `right` arrow does not move input cursor with `visible selection dropdown`. Event accidentally prevented by `sub menu` shortcut keys.
@@ -31,6 +87,7 @@
 ### Version 1.11.0 - March 3, 2015
 
 - **Dropdown** - Fixes issue where dropdown would not open after restoring previus value on failed `search dropdown` search
+- **Dropdown** - Fixes issue where dropdown would not open after restoring previous value on failed `search dropdown` search
 
 ### Version 1.10.3 - February 27, 2015
 
@@ -62,7 +119,7 @@
 - **Dropdown** - Dropdown no longer will not show menu when no `item` are present in menu. Dropdown will now only filter results for `ui search dropdown` #1632 **Thanks PSyton**.
 - **Dropdown** - Dropdown will now produce an error if behaviors on an initialized `<select>` are not invoked on `ui dropdown`
 - **Dropdown** - Fixed bug where link items would not open in sub-menus due to `event.preventDefault`
-- **Label** - Fixed `ui corner label` appearing on-top of `ui dropdown` menu due to issue in z-index heirarchy
+- **Label** - Fixed `ui corner label` appearing on-top of `ui dropdown` menu due to issue in z-index hierarchy
 
 ### Version 1.7.0 - January 14, 2015
 
@@ -71,7 +128,7 @@
 - **Dropdown** - Fix issue with search selection not correctly matching when values are not strings
 - **Dropdown** - New `upward dropdown` variation, which opens its menu upward. Default animation now uses ``settings.transition = 'auto'` and determines direction of animation based on menu direction
 - **Dropdown** - Dropdown matching fields without values now trims whitespace by default
-- **Dropdown** - `restore defaults` will now set placeholder styling and remove active elemenet. Added example in docs.
+- **Dropdown** - `restore defaults` will now set placeholder styling and remove active element. Added example in docs.
 - **Dropdown** - Fixed bug where sub menus may sometimes have dropdown icon overlap text
 - **Dropdown** - Fixes dropdown search input from filtering text values when input is inside menu, i.e "In-Menu Search"
 - **Dropdown** - Fix issue with search selection not correctly creating RegExp when select values are not strings **Thanks @alufers**
@@ -182,7 +239,7 @@
 ### Version 0.9.3 - Nov 17, 2013
 
 - **Dropdown** - Fixes "falsey" values (like 0) not being processed correctly
-- **Button** - Fixes improper active/visible state due to :not specificity (most noticiable in mousedown on a dropdown button)
+- **Button** - Fixes improper active/visible state due to :not specificity (most noticeable in mousedown on a dropdown button)
 
 ### Version 0.9.0 - Nov 5, 2013
 
