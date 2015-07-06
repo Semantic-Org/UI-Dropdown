@@ -1,5 +1,6 @@
 ### Version 2.0.1 - June 30, 2015
 
+- **Dropdown** - Fixed transparent tap color not being set correctly. Removed toggle behavior from touch events on multiple dropdown. [#2524](https://github.com/Semantic-Org/Semantic-UI/issues/2524)
 - **Dropdown** - `restore defaults` in dropdown when used with multiple will now correctly clear other values selected that were not there on page load.
 - **Dropdown** - Removes accidental console.log statement in dropdown
 
