@@ -1,8 +1,19 @@
-### Version 2.0.1 - June 30, 2015
+### Version 2.0.2 - July 7, 2015
+
+- **Dropdown** - Fixed regression in `2.0.1` causing search dropdown not to clear values correctly [#2533](https://github.com/Semantic-Org/Semantic-UI/issues/2533)
+- **Dropdown** - Dropdown icon will now always toggle menu visibility [#2510](https://github.com/Semantic-Org/Semantic-UI/issues/2510)
+- **Dropdown** -  Pressing same key on dropdown with multiple choices with same first letter will now cycle selections. For example "California" then "Colorado" when pressing C [#2516](https://github.com/Semantic-Org/Semantic-UI/issues/2516)
+- **Dropdown** - Dropdown now changes text before calling `onChange` callback so that callback reflects new dropdown conditions [#2539](https://github.com/Semantic-Org/Semantic-UI/issues/2539)
+- **Dropdown** - Clicking on label, or deleting a label will no longer trigger dropdown menu toggling
+- **Dropdown** - Multiselect that do use text labels (e.g. "5 selected") will now remove filters on selection and scroll to last selected value
+
+### Version 2.0.1 - July 6, 2015
 
 - **Dropdown** - Fixed transparent tap color not being set correctly. Removed toggle behavior from touch events on multiple dropdown. [#2524](https://github.com/Semantic-Org/Semantic-UI/issues/2524)
 - **Dropdown** - `restore defaults` in dropdown when used with multiple will now correctly clear other values selected that were not there on page load.
 - **Dropdown** - Removes accidental console.log statement in dropdown
+- **Dropdown** - Dropdown no longer closes after max selections reached and enter key used for selection.
+- **Dropdown** - Dropdown will now show correctly when menu only includes a message with no other items
 
 ### Version 2.0.0 - June 30, 2015
 
