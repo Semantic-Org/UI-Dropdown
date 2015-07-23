@@ -2,7 +2,7 @@
 Package.describe({
   name    : 'semantic:ui-dropdown',
   summary : 'Semantic UI - Dropdown: Single component release',
-  version : '2.0.5',
+  version : '2.0.7',
   git     : 'git://github.com/Semantic-Org/UI-Dropdown.git',
 });
 
