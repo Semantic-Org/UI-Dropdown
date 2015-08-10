@@ -1,4 +1,4 @@
-### Version 2.0.7 - July 22, 2015
+### Version 2.0.7 - July 23, 2015
 
 - **Dropdown** - Fixed border radius on `circular labeled icon button`  [#2700](https://github.com/Semantic-Org/Semantic-UI/issues/2700)
 - **Dropdown** - Fixed issue where dropdown nested inside `label` would not open. [#2711](https://github.com/Semantic-Org/Semantic-UI/issues/2711)
