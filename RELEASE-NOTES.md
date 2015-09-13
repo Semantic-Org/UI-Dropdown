@@ -1,3 +1,7 @@
+### Version 2.1.4 - Sep 13, 2015
+
+- **Dropdown** - Fixed issue with ',' key not being allowed in dropdown due to user tagging shortcut key [#3016](https://github.com/Semantic-Org/Semantic-UI/issues/3016)
+
 #### Features
 
 - **Dropdown**  - Dropdown using remote data, can now customize the property names returned by api call using `fields` (similar to search).
