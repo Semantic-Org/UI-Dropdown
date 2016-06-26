@@ -1,3 +1,32 @@
+### Version 2.2.0 - June 26, 2016
+
+- **Dropdown** - All dropdowns, not just `selection dropdown`, will now select the first `menu item` that starts with a pressed keyboard key, for example "N" will select "New"
+- **Dropdown** - Dropdown now changes user selection on keyboard shortcuts immediately, this will save the extra `enter` key press to confirm selection in most cases. To enable previous pre `2.2` selection style use the setting `selectOnKeydown: false` 
+- **Dropdown** - Dropdown will now automatically focus on `search` inside of a dropdown menu after it is opened.
+- **Dropdown** - Multiple select dropdown now sizes current dropdown input based on rendered width of a hidden element, not using an estimate based on character count. This means search will never break to a second line earlier than would normally fit in current line.
+- **Dropdown** - Added `fullSearchSearch: 'exact'` setting, which requires exact matches for dropdown values [#3085](https://github.com/Semantic-Org/Semantic-UI/issues/3085) [#3994](https://github.com/Semantic-Org/Semantic-UI/issues/3994) **Thanks @ShawnCholeva**
+- **Dropdown** - Added new setting for search selection `hideAdditions` this will remove showing user additions inside the menu, making for a more intuitive adding process. Dropdowns now have a new state `empty` which will format an active dropdown with empty results. [#3791](https://github.com/Semantic-Org/Semantic-UI/issues/3791)
+- **Dropdown** - Adds new `allowReselection` option to trigger `onChange` events even when reselecting same value 
+- **Dropdown** - Adds new setting `minCharacters` which sets the minimum number of characters required to start filtering results [#3886](https://github.com/Semantic-Org/Semantic-UI/issues/3886)
+- **Dropdown** - Added new convenience method `restore placeholder text`
+- **Dropdown** - `forceSelection` will now automatically select values with multi dropdowns. When using `userAdditions` setting it will now automatically tokenize the current entered value
+- **Dropdown** - `search selection` would not let you move back in an entered search string with left arrow [#3596](https://github.com/Semantic-Org/Semantic-UI/issues/3596) **Thanks @Sanjo**
+- **Dropdown** - Fixed issue where value set using javascript DOM metadata would be cleared when a message or user addition triggered `refresh` [#3879](https://github.com/Semantic-Org/Semantic-UI/issues/3879) [#3622](https://github.com/Semantic-Org/Semantic-UI/issues/3622) **Thanks @mdehoog**
+- **Form Validation / Dropdown** - Using "enter" key in a `search dropdown` could cause a form to be submitted [#3676](https://github.com/Semantic-Org/Semantic-UI/issues/3676)
+- **Button/Dropdown** - Button dropdowns using `default text` no longer receive incorrect font styling for placeholder text
+- **Dropdown** - `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
+- **Dropdown** - `get value` would not return correct value when value was blank [#3766](https://github.com/Semantic-Org/Semantic-UI/issues/3766)
+- **Dropdown** - Added `1px` offset for current text so that the blinking text position cursor does not overlap first pixel of underlayed text.
+- **Dropdown** - Dropdown would open when an label delete x was clicked when not using `search selection` [#3789](https://github.com/Semantic-Org/Semantic-UI/issues/3789)
+- **Dropdown** - Dropdowns no longer re-open on selection when nested inside of a `<label>` [#3917](https://github.com/Semantic-Org/Semantic-UI/issues/3917)
+- **Dropdown** - Dropdowns with sub-menus would not properly activate on mobile [#3183](https://github.com/Semantic-Org/Semantic-UI/issues/3183)
+- **Dropdown** - Fixed bug where using `action: 'hide'` could cause `text` value not to be passed to `onChange` callback
+- **Dropdown** - Fixed issue where values with `"` (double quotes) would not work with a dropdown using a select, because value would not be encoded as html entities
+- **Dropdown** - Long dropdown text entry with `allowAdditions` would cause input to mistakingly drop to next line early [#3743](https://github.com/Semantic-Org/Semantic-UI/issues/3743)
+- **Dropdown** - Regenerated dropdown will no longer ignore `disabled` property [#4010](https://github.com/Semantic-Org/Semantic-UI/issues/4010) **Thanks @eymengunay!**
+- **Dropdown** - Search selection would lose search input focus when clicking on a choice [#3790](https://github.com/Semantic-Org/Semantic-UI/issues/3790)
+- **Input** - Fixes issue with `dropdown` or button on the left side of an `action` input not properly rounding
+
 ### Version 2.1.7 - Dec 19, 2015
 
 - **Sidebar** - Sidebar no longer includes `transform` rules on child elements, this was causing layout issues in some cases (for example dropdowns in sidebars) [#3306](https://github.com/Semantic-Org/Semantic-UI/issues/3306)
@@ -68,8 +97,8 @@
 ### Version 2.0.5 - July 20, 2015
 
 - **Dropdown** - Fixed issue causing `multiple search dropdown` using [`search` inside menu](http://www.semantic-ui.com/modules/dropdown.html#search-in-menu) to break when multiple [#2666](https://github.com/Semantic-Org/Semantic-UI/issues/2666)
-- **Dropdown** - `<select>` dropdowns intialized without `multiple` property set on `<select>` will now produce an error to alert users selection will not be preserved correctly. Related [#2573](https://github.com/Semantic-Org/Semantic-UI/issues/2573)
-- **Dropdown** - Dropdown `<option>` added with `userAddition` now recieve class name `addition` to distinguish from original `<select>` options. [#2573](https://github.com/Semantic-Org/Semantic-UI/issues/2573)
+- **Dropdown** - `<select>` dropdowns initialized without `multiple` property set on `<select>` will now produce an error to alert users selection will not be preserved correctly. Related [#2573](https://github.com/Semantic-Org/Semantic-UI/issues/2573)
+- **Dropdown** - Dropdown `<option>` added with `userAddition` now receive class name `addition` to distinguish from original `<select>` options. [#2573](https://github.com/Semantic-Org/Semantic-UI/issues/2573)
 - **Dropdown** - User additions now have their `<option>` removed if a user deselects an addition. [#2573](https://github.com/Semantic-Org/Semantic-UI/issues/2573)
 
 ### Version 2.0.4 - July 17, 2015
@@ -180,7 +209,7 @@
 
 ### Version 1.11.0 - March 3, 2015
 
-- **Dropdown** - Fixes issue where dropdown would not open after restoring previus value on failed `search dropdown` search
+- **Dropdown** - Fixes issue where dropdown would not open after restoring previous value on failed `search dropdown` search
 - **Dropdown** - Fixes issue where dropdown would not open after restoring previous value on failed `search dropdown` search
 
 ### Version 1.10.3 - February 27, 2015
@@ -267,7 +296,7 @@
 
 ### Version 1.1.0 - December 02, 2014
 
-- **Dropdown** - Dropdown ``onChange`` callback now fires when calling ``setSelected`` programatically.
+- **Dropdown** - Dropdown ``onChange`` callback now fires when calling ``setSelected`` programmatically.
 - **Dropdown** - Fix ``action input`` used inside ``ui dropdown`` to appear correctly **Thanks ordepdev**
 
 ### Version 1.0.0 - November 24, 2014
@@ -328,11 +357,11 @@
 
 ### Version 0.9.4 - Nov 24, 2013
 
-- **Dropdown** - Fixes issue where falsey value (i.e. 0) could not be selected
+- **Dropdown** - Fixes issue where falsy value (i.e. 0) could not be selected
 
 ### Version 0.9.3 - Nov 17, 2013
 
-- **Dropdown** - Fixes "falsey" values (like 0) not being processed correctly
+- **Dropdown** - Fixes "falsy" values (like 0) not being processed correctly
 - **Button** - Fixes improper active/visible state due to :not specificity (most noticeable in mousedown on a dropdown button)
 
 ### Version 0.9.0 - Nov 5, 2013
