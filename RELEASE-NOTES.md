@@ -1,3 +1,7 @@
+### Version 2.2.2 - July 07, 2016
+
+- **Dropdown** - Fixed "pointer" cursor appearing in hitbox above search input in `search selection`, now all input area will appear with "text" input cursor
+
 ### Version 2.2.1 - June 27, 2016
 
 - **Dropdown** - Fixed issue where using both `<select>` and `allowAdditions: true` would cause dropdown selection to fail
