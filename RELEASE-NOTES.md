@@ -1,3 +1,18 @@
+#### Dropdown
+`multiple selection dropdown` no longer automatically adds the currently selected value when you "alt-tab" or blur the field, even when `forceSelection: true` is set.
+
+- **Dropdown** - Added new setting `filterAPIResults`, when set to `true` API will be expected to return the complete result set, which will then be filtered clientside to only display matching results. **Thanks @enix223** [#4815](https://github.com/Semantic-Org/Semantic-UI/pull/4815)
+- **Dropdown** - Fixed issue where using some usage of special characters like `\` could cause dropdowns to not work. [#4688](https://github.com/Semantic-Org/Semantic-UI/pull/4688) [#4692](https://github.com/Semantic-Org/Semantic-UI/pull/4692)
+- **Dropdown** - `forceSelection` setting will no longer cause highlighted value in multiselect to be selected on blur when using a `multiple selection dropdown` [#4041](https://github.com/Semantic-Org/Semantic-UI/pull/4041) [#4516](https://github.com/Semantic-Org/Semantic-UI/pull/4516)
+- **Dropdown** - Dropdown using search input inside of menu are now tabbable [#4490](https://github.com/Semantic-Org/Semantic-UI/pull/4490)
+- **Dropdown** - Fixed bug where clicking on a dropdown's `dropdown icon` when using remote data would not open menu [#4041](https://github.com/Semantic-Org/Semantic-UI/pull/4041)
+- **Dropdown/Search/Checkbox** - Removes use of deprecated `dispatchEvent` DOM APIs for generating simulated events
+- **Dropdown** - Fixes issue where `left pointing dropdown` and `right pointing dropdown` appear styled incorrectly when opening `upward` [#4896](https://github.com/Semantic-Org/Semantic-UI/pull/4896)
+- **Dropdown** - Fixed issue where using `fullTextSearch: 'exact'` would still fuzzy search on value **Thanks @ rminnett** [#4651](https://github.com/Semantic-Org/Semantic-UI/pull/4651) [#3424](https://github.com/Semantic-Org/Semantic-UI/pull/3424)
+- **Dropdown** - Fix bug where `scrolling menu` or `scrolling dropdown` would have excessive right padding by removing scrollbar width from calculation (no longer necessary in modern browsers)
+- **Dropdown** - Fixed issue where `selectOnKeydown` with `html` content would cause only non html content to display in `text` until blur
+- **Input/Dropdown** - Fixed rounding error causing vertical alignment of `dropdown`, `search`, `input` to sometimes appear off by 1 pixel [#4279](https://github.com/Semantic-Org/Semantic-UI/pull/4279)
+
 ### Version 2.2.3 - August 21, 2016
 
 - **Dropdown** - Using `search selection` with `selectOnKeydown` will now highlight the partial search matching the currently keyboard selected value
