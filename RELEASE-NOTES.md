@@ -1,4 +1,9 @@
-### Version 2.3.0 - Feb 19, 2018
+### Version 2.3.1 - Mar 19, 2018
+
+- **Dropdown** - Fixed issue in `2.3.0` that could cause multiselect dropdowns initialized by converting `<select>` to not add initial selected options. [#6123](https://github.com/Semantic-Org/Semantic-UI/issues/6123)
+- **Dropdown** - Fixed `onChange` missing `text` from callback when dropdown is set to `action: 'select'` [#4183](https://github.com/Semantic-Org/Semantic-UI/issues/4183) [#4510](https://github.com/Semantic-Org/Semantic-UI/issues/4510)
+
+### Version 2.3.0 - Feb 20, 2018
 
 - **Search** - Category results now has `exact` setting matching dropdown for `fullTextSearch` preventing fuzzy search
 
