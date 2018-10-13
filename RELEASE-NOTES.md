@@ -1,3 +1,7 @@
+### Version 2.4.1 - Oct 13, 2018
+
+- **Dropdown** - `clearable` dropdown now works with dropdown that arent `on:click`, like `hover` or `manual` triggers. [#6594](https://github.com/Semantic-Org/Semantic-UI/issues/6594)
+
 ### Version 2.4.0 - Sep 17, 2018
 
 - **Dropdown** - Added `clearable` dropdowns. When `clearable: true` is specified an (X) will appear to clear dropdown selection [#2072](https://github.com/Semantic-Org/Semantic-UI/issues/2072)

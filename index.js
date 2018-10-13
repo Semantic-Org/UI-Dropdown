@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.4.0 - Dropdown
+ * # Semantic UI 2.4.1 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -606,7 +606,6 @@ module.exports = function(parameters) {
             else {
               if(settings.on == 'click') {
                 $module
-                  .on('click' + eventNamespace, selector.icon, module.event.icon.click)
                   .on('click' + eventNamespace, module.event.test.toggle)
                 ;
               }
@@ -622,6 +621,7 @@ module.exports = function(parameters) {
                 ;
               }
               $module
+                .on('click' + eventNamespace, selector.icon, module.event.icon.click)
                 .on('mousedown' + eventNamespace, module.event.mousedown)
                 .on('mouseup'   + eventNamespace, module.event.mouseup)
                 .on('focus'     + eventNamespace, module.event.focus)
@@ -1023,7 +1023,7 @@ module.exports = function(parameters) {
               if($icon.hasClass(className.clear)) {
                 module.clear();
               }
-              else {
+              else if (module.can.click()) {
                 module.toggle();
               }
             }

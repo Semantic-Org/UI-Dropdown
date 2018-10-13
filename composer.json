@@ -8,12 +8,7 @@
     "web": "http://www.jacklukic.com",
     "role": "Creator"
   }],
-  "keywords": [
-    "semantic",
-    "ui",
-    "css",
-    "framework"
-  ],
+  "keywords": ["semantic", "ui", "css", "framework"],
   "license": "MIT",
-  "version": "2.4.0"
+  "version": "2.4.1"
 }
