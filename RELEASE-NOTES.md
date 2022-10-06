@@ -1,3 +1,7 @@
+### Version 2.5.0 - Oct 6, 2022
+
+- **Dropdown** - Fix issue where dropdown menu could not open to right when in `right menu` inside a `ui menu` (See examples/sticky.html) for use-case
+
 ### Version 2.4.1 - Oct 13, 2018
 
 - **Dropdown** - `clearable` dropdown now works with dropdown that arent `on:click`, like `hover` or `manual` triggers. [#6594](https://github.com/Semantic-Org/Semantic-UI/issues/6594)

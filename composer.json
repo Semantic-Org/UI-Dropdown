@@ -5,10 +5,10 @@
   "authors": [{
     "name": "Jack Lukic",
     "email": "jacklukic@gmail.com",
-    "web": "http://www.jacklukic.com",
+    "homepage": "http://www.jacklukic.com",
     "role": "Creator"
   }],
   "keywords": ["semantic", "ui", "css", "framework"],
   "license": "MIT",
-  "version": "2.4.1"
+  "version": "2.5.0"
 }
